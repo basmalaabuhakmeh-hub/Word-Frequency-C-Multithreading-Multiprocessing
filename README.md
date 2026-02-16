@@ -12,7 +12,7 @@ All three programs read **text8.txt**, count how often each word appears, and ou
 | **multithreading.c** | Multithreaded | 8 threads (pthreads) | File split into 8 segments; each thread has local word counts, then results merged into a global array protected by a mutex. |
 | **multiprocssing.c**  | Multiprocessing | 8 processes (`fork`) | File split into 8 segments; each child writes segment results to `segment_N.bin`; parent merges into shared memory (`mmap`) and prints top 10. Temp files deleted after merge. |
 
-**Input:** `text8.txt` must be in the current working directory when you run the programs (not included in the repo; obtain it separately, e.g. from the project assignment or a public text corpus).
+**Input:** `text8.txt` must be in the current working directory when you run the programs 
 
 ---
 
