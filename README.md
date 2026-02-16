@@ -12,7 +12,15 @@ All three programs read **text8.txt**, count how often each word appears, and ou
 | **multithreading.c** | Multithreaded | 8 threads (pthreads) | File split into 8 segments; each thread has local word counts, then results merged into a global array protected by a mutex. |
 | **multiprocssing.c**  | Multiprocessing | 8 processes (`fork`) | File split into 8 segments; each child writes segment results to `segment_N.bin`; parent merges into shared memory (`mmap`) and prints top 10. Temp files deleted after merge. |
 
-**Input:** `text8.txt` must be in the current working directory when you run the programs 
+**Input:** The programs read a text file from the current directory. Per the **ENCS3390 Project 1** assignment, the required dataset is **enwik8**.
+
+---
+
+## Input dataset
+
+- **Source (assignment):** **enwik8** — https://huggingface.co/datasets/LTCB/enwik8  
+- The code expects the file to be named **`text8.txt`** in the project directory. After downloading enwik8 from the link above, save or copy it as `text8.txt` in the same folder as the executables (or change the filename in `naive.c`, `multithreading.c`, and `multiprocssing.c` to match your file).  
+- Not included in the repo due to size.
 
 ---
 
@@ -32,7 +40,7 @@ All three programs read **text8.txt**, count how often each word appears, and ou
 ## Requirements
 
 - **C compiler** — GCC (e.g. on Linux/Ubuntu or WSL). The multithreading and multiprocessing code use POSIX APIs (`pthreads`, `fork`, `mmap`, `wait`), so they are intended for a **Linux or compatible environment** (e.g. Ubuntu in a VM, as noted in the report).
-- **text8.txt** — Place the input text file in the same directory as the executables (or run from that directory). The report assumes a large text file (e.g. millions of words) for meaningful performance comparison.
+- **Input file** — Download **enwik8** from https://huggingface.co/datasets/LTCB/enwik8 and place it as `text8.txt` in the project directory (or edit the filename in the source files). The assignment requires a machine with at least 4 cores for meaningful comparison (2, 4, 6, 8 processes/threads).
 
 ---
 
